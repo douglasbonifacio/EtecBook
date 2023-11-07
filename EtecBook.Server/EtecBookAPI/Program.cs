@@ -19,6 +19,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Serviço de Autenticação
 
 // Serviço do Cors
+builder.Services.AddCors(option =>
+option.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyMethod()
+           .AllowAnyOrigin()
+           .AllowAnyHeader();
+})
+);
 
 var app = builder.Build();
 
@@ -31,7 +39,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("MyPolicy");
+
+app.UseAuthentication();
+
 app.UseAuthorization();
+
 
 app.MapControllers();
 

@@ -18,8 +18,8 @@
             <label for="email">Email</label>
             <small *ngIf="f['email'].dirty && f['email'].errors?.['required']"
             class="text-danger text-start d-block mt-1">Por Favor Informe Seu Email</small>
-            <small *ngIf="f['email'].dirty && f['email'].errors?.['required']"
-            class="text-danger text-start d-block mt-1">Por favor, informe um email válido</small>
+            <small *ngIf="f['email'].dirty && f['email'].errors?.['email']"
+            class="text-danger text-start d-block mt-1">Por favor, Informe um email válido</small>
         </div>
 
         <div class="form-floating mb-2">
@@ -37,6 +37,6 @@
             <h6>Já Possui uma Conta?</h6>
             <div class="line"></div>
         </div>
-        <a routerLink="/register" class="w-100 btn btn-success mt-2">Fazer Login</a>
+        <a routerLink="/login" class="w-100 btn btn-success mt-2">Fazer Login</a>
     </form>
 </main>
